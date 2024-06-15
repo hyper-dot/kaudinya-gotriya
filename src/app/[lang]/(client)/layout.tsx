@@ -47,7 +47,7 @@ export default async function RootLayout({
             <NoticeOverlay key={notice._id} imgurl={notice.image.secure_url} />
           ))}
         <main className="2xl:container">
-          <Header lang={lang} />
+          <Header />
           <DesktopNav lang={lang} />
           {children}
           <Footer lang={lang} />

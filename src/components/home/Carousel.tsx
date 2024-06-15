@@ -45,7 +45,7 @@ export function HomeCarousel({ notices }: { notices: string }) {
       <CarouselContent>
         {noticeArr.map((notice: any) => (
           <CarouselItem key={notice._id}>
-            <div className="relative h-full md:h-[500px]">
+            <div className="relative h-full md:h-[530px]">
               <img
                 src={notice.image.secure_url}
                 alt="image"
