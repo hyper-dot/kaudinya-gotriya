@@ -51,7 +51,7 @@ const data = {
 export const Mission = ({ lang }: { lang: string }) => {
   return (
     <section>
-      <div className="space-x-4 py-20">
+      <div className="space-x-4 py-4">
         <H1 className="mx-12 text-center text-3xl lg:text-left lg:text-4xl">
           हामी विश्वास गर्छौं
         </H1>

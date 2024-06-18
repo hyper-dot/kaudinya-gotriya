@@ -23,7 +23,7 @@ const Footer = ({ lang }: { lang: string }) => {
             <img src="/logo.png" alt="logo" className="w-[80px]" />
             <h1 className="mb-4 flex flex-col text-xl font-bold md:hidden">
               <span>
-                {dictionary[lang as keyof typeof dictionary].satlokMultipurpose}
+                {dictionary[lang as keyof typeof dictionary].companyname}
               </span>
               <span>
                 {dictionary[lang as keyof typeof dictionary].cooperativeLtd}
@@ -36,10 +36,7 @@ const Footer = ({ lang }: { lang: string }) => {
                 className={`flex gap-2 ${lang === "np" ? "text-2xl" : "text-xl"}  font-semibold`}
               >
                 <span>
-                  {
-                    dictionary[lang as keyof typeof dictionary]
-                      .satlokMultipurpose
-                  }
+                  {dictionary[lang as keyof typeof dictionary].companyname}
                 </span>
                 <span>
                   {dictionary[lang as keyof typeof dictionary].cooperativeLtd}
