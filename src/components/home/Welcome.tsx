@@ -3,42 +3,41 @@ import Link from "next/link";
 import { H2, H1 } from "../typography";
 import { homeDictionary } from "@/dictionary/home";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export const Welcome = ({ lang }: { lang: string }) => {
   return (
-    <section
-      style={{
-        background: "url(/home/diamonds.svg) no-repeat  95%",
-      }}
-      className=""
-    >
-      <H2 className="pb-10 pt-20 text-center text-red-600 md:pb-4">
-        तपाइलाई हाम्रो सहकारीमा स्वागत छ
-      </H2>
-      <div className="grid gap-x-8 bg-white pb-10 md:mx-auto md:max-w-[80%] md:grid-cols-2 md:bg-transparent lg:mx-0">
-        <div className="flex items-center justify-center md:justify-end">
-          <img src="/namaste.webp" className="h-[500px] rounded-lg" />
+    <section className="bg-white py-10 md:py-16">
+      <div className="container px-4 md:flex md:space-x-8 lg:px-8">
+        <H1 className="lg:hiddenlg:text-4xl mb-8 block text-center text-3xl font-semibold md:hidden md:text-3xl">
+          Kaundinya Rishi
+        </H1>
+        <div className="mb-8 flex-shrink-0 md:mb-0">
+          <Image
+            alt="Kaundinya Rishi"
+            src="/rishi/rishi.svg"
+            height={500}
+            width={600}
+            className="h-[200px] w-full rounded-md md:h-[400px] md:w-[400px] lg:h-[350px] lg:w-[400px]"
+          />
         </div>
-
-        <div className="px-4 text-center md:px-0 md:text-left">
-          <div className="space-y-10 py-10  md:bg-transparent lg:py-32">
-            <H1 className="text-2xl font-semibold md:text-3xl">
-              “गरिवी न्यूनीकरण र उद्यमशिलता श्रृजना”
-            </H1>
-
-            <p className={`${lang === "en" ? "text-md" : "text-xl"}`}>
-              {
-                homeDictionary[lang as keyof typeof homeDictionary]
-                  .welcomeContent
-              }
-            </p>
-
-            <Button asChild variant="outline" className="border-primary">
-              <Link href="/about" className="block py-5 text-xl text-primary">
-                विवरण हेर्नुहोस{" "}
-              </Link>
-            </Button>
-          </div>
+        <div className="flex-1 space-y-4 md:space-y-6">
+          <H1 className="hidden text-2xl font-semibold md:block md:text-3xl lg:block lg:text-4xl">
+            Kaundinya Rishi
+          </H1>
+          <p
+            className={`text-justify ${lang === "en" ? "text-base" : "text-lg"} md:text-left md:text-[14px] lg:text-lg lg:text-lg`}
+          >
+            {homeDictionary[lang as keyof typeof homeDictionary].welcomeContent}
+          </p>
+          <Button asChild variant="outline" className="border-primary">
+            <Link
+              href="/about"
+              className="block py-3 text-center text-lg text-primary md:py-4 md:text-xl"
+            >
+              View More
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
