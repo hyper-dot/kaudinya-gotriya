@@ -70,22 +70,22 @@ const GallaryNotice = ({ lang }: { lang: string }) => {
             </div>
             <div className="px-4 py-8">
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
-                {galleryData.map((g, idx) => (
+                {galleryData.map((gallary, index) => (
                   <Link
-                    href={`/gallery/${g._id}`}
-                    key={idx}
+                    href={`/gallery/${gallary._id}`}
+                    key={index}
                     className="w-full space-y-2 transition-shadow duration-300 hover:shadow-lg"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <p className="font-medium">{g.title}</p>
+                      <p className="font-medium">{gallary.title}</p>
                       <p className="flex items-center gap-2">
                         <Image size={20} />
-                        {g.images.length}
+                        {gallary.images.length}
                       </p>
                     </div>
                     <div>
                       <img
-                        src={g.images}
+                        src={gallary.images}
                         alt="gallery"
                         height={400}
                         width={400}
