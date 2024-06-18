@@ -26,7 +26,7 @@ export const Welcome = ({ lang }: { lang: string }) => {
             Kaundinya Rishi
           </H1>
           <p
-            className={`text-justify ${lang === "en" ? "text-base" : "text-lg"} md:text-left md:text-[14px] lg:text-lg lg:text-lg`}
+            className={`text-justify ${lang === "en" ? "text-base" : "text-lg"} leading-8 md:text-left md:text-justify md:text-[14px] md:leading-8 lg:text-justify lg:text-lg lg:text-lg lg:leading-8`}
           >
             {homeDictionary[lang as keyof typeof homeDictionary].welcomeContent}
           </p>
