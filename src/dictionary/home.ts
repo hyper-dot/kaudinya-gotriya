@@ -3,6 +3,7 @@ export const homeDictionary = {
     whySatlok: "Why Satalok Multipurpose Co-operative",
     memberOriented: "Member Oriented Vison",
     social: "Social Impact",
+    welcome: "Kaudinya Rishi",
     interestRate: "Competitive Interest Rate",
     remmitance: "Remmitance",
     gallery: "Our Gallery",
@@ -17,6 +18,7 @@ export const homeDictionary = {
   np: {
     whySatlok: "किन सतलोक बहुउद्देश्यीय सहकारी संस्था ?",
     social: "सामुदायिक प्रभाव",
+    welcome: "कौण्डिन्य ऋषि",
     interestRate: "प्रतिस्पर्धी ब्याज दर",
     memberOriented: "सदस्य केन्द्रित दृष्टिकोण",
     remmitance: "रेमिटेन्स सेवाहरू",
