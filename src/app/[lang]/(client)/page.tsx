@@ -9,6 +9,7 @@ import {
 } from "@/components/home";
 import DashboardNotice from "@/server/models/DashboardNotice";
 import connectDB from "@/server/utils/connectDB";
+import Message from "@/components/home/Message";
 
 const page = async ({ params }: { params: { lang: string } }) => {
   const { lang } = params;
@@ -23,7 +24,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
       <Welcome lang={lang} />
       <Mission lang={lang} />
       <Gallery lang={lang} />
-      <Why lang={lang} />
+      <Message lang={lang} />
       <Remmitance lang={lang} />
     </main>
   );
