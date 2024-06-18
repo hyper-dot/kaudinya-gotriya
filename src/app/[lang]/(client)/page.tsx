@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  HomeCarousel,
-  Welcome,
-  Mission,
-  Gallery,
-  Remmitance,
-  Why,
-} from "@/components/home";
+import { HomeCarousel, Welcome, Mission, Gallery } from "@/components/home";
 import DashboardNotice from "@/server/models/DashboardNotice";
 import connectDB from "@/server/utils/connectDB";
 import Message from "@/components/home/Message";
+import GallaryNotice from "@/components/home/Gallary-Notice";
 
 const page = async ({ params }: { params: { lang: string } }) => {
   const { lang } = params;
@@ -25,7 +19,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
       <Mission lang={lang} />
       <Gallery lang={lang} />
       <Message lang={lang} />
-      <Remmitance lang={lang} />
+      <GallaryNotice lang={lang} />
     </main>
   );
 };

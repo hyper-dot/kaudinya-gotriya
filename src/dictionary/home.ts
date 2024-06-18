@@ -10,6 +10,7 @@ export const homeDictionary = {
     fullGallery: "View All Gallery",
     service: "Our Services",
     mission: "Our Mission",
+    news: "Notice and News",
     message: "Chairman's Message",
     welcomeContent: `Kaundinya Rishi, an ancient sage of revered wisdom in Hindu mythology, is celebrated for his profound spiritual knowledge and contributions to Vedic teachings. Believed to have lived during the Vedic period, he is renowned for founding several ancestral lineages (gotras) and is revered in Hindu tradition for his role in shaping cultural and religious practices. His legacy endures through temples and rituals dedicated to him, where devotees seek his blessings for enlightenment and spiritual guidance.`,
     missionContent:
@@ -27,6 +28,7 @@ export const homeDictionary = {
     service: "हाम्रा सेवाहरू",
     mission: "हाम्रो प्रतिबद्धता",
     message: "अध्यक्षको सन्देश",
+    news: "सूचना तथा समाचार",
     welcomeContent:
       "Kaundinya Rishi, an ancient sage of revered wisdom in Hindu mythology, is celebrated for his profound spiritual knowledge and contributions to Vedic teachings. Believed to have lived during the Vedic period, he is renowned for founding several ancestral lineages (gotras) and is revered in Hindu tradition for his role in shaping cultural and religious practices. His legacy endures through temples and rituals dedicated to him, where devotees seek his blessings for enlightenment and spiritual guidance.",
     missionContent:
