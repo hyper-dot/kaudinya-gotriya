@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRightFromSquare, PlusCircle } from "lucide-react";
 import { H2 } from "@/components/typography";
+import { unstable_noStore as noStore } from "next/cache";
 
 import {
   Table,
@@ -19,6 +20,7 @@ import connectDB from "@/server/utils/connectDB";
 import { notFound } from "next/navigation";
 
 const page = async () => {
+  noStore();
   try {
     await connectDB();
     const documents = await Doc.find().sort({ createdAt: -1 });
@@ -45,28 +47,28 @@ const page = async () => {
           <TableBody>
             {documents
               ? documents.map((d) => (
-                <TableRow>
-                  <TableCell>{d.title}</TableCell>
-                  <TableCell>{dateFormatter(d.createdAt)}</TableCell>
-                  <TableCell>
-                    <Link
-                      href={d.url}
-                      className="flex items-center gap-2 text-blue-600"
-                      target="_blank"
-                    >
-                      view <ArrowUpRightFromSquare size={16} />
-                    </Link>
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <div className="inline-flex gap-2">
-                      <DeleteAlert
-                        deleteAction={deleteDocument}
-                        id={JSON.stringify(d._id)}
-                      />
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))
+                  <TableRow>
+                    <TableCell>{d.title}</TableCell>
+                    <TableCell>{dateFormatter(d.createdAt)}</TableCell>
+                    <TableCell>
+                      <Link
+                        href={d.url}
+                        className="flex items-center gap-2 text-blue-600"
+                        target="_blank"
+                      >
+                        view <ArrowUpRightFromSquare size={16} />
+                      </Link>
+                    </TableCell>
+                    <TableCell className="text-right">
+                      <div className="inline-flex gap-2">
+                        <DeleteAlert
+                          deleteAction={deleteDocument}
+                          id={JSON.stringify(d._id)}
+                        />
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))
               : null}
           </TableBody>
         </Table>

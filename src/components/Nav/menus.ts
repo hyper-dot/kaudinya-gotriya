@@ -103,7 +103,7 @@ export const menus = {
 
 export const about = {
   en: [
-    { title: "About Satalok", to: "/" },
+    { title: "About Us", to: "/" },
     { title: "Message From The Chairman", to: "/chairman" },
     { title: "Board Of Directors", to: "/bod" },
     { title: "Audit Committee", to: "/audit" },
@@ -111,7 +111,7 @@ export const about = {
     { title: "Other Committee", to: "/others" },
   ],
   np: [
-    { title: "सतालोकको बारेमा", to: "/" },
+    { title: "हाम्रो बारेमा", to: "/" },
     { title: "अध्यक्षको सन्देश", to: "/chairman" },
     { title: "संचालक समिति", to: "/bod" },
     { title: "लेखा समिति", to: "/audit" },

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
-import React from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 
@@ -38,6 +37,7 @@ const page = () => {
       title: res.ok ? "Success !!" : "Failed !!",
       description: res.json().then((res) => res.message),
     });
+
     if (res.ok) {
       return router.back();
     }

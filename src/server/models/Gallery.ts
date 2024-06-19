@@ -4,6 +4,7 @@ const photoSchema = new Schema({
   public_id: { type: String, required: true },
   url: { type: String, required: true },
 });
+const Photo = models.Photo || model("Photo", photoSchema);
 
 // Schema
 const gallerySchema = new Schema(
@@ -15,7 +16,7 @@ const gallerySchema = new Schema(
     photos: [
       {
         type: Schema.ObjectId,
-        ref: "Photo",
+        ref: Photo.modelName,
       },
     ],
   },
@@ -23,6 +24,5 @@ const gallerySchema = new Schema(
 );
 
 const Gallery = models.Gallery || model("Gallery", gallerySchema);
-const Photo = models.Photo || model("Photo", photoSchema);
 
 export { Gallery, Photo };

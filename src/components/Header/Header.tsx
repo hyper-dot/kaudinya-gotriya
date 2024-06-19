@@ -15,15 +15,15 @@ const Header = () => {
             className="h-[50px] w-[50px]  sm:h-[100px] sm:w-[100px] md:h-[120px] md:w-[120px]"
           />
           <div className="md:space-y-2">
-            <h1 className="text-2xl font-medium sm:text-3xl md:text-4xl">
+            <h1 className="text-2xl font-medium text-primary sm:text-3xl md:text-4xl">
               कौण्डिन्य गोत्रिय महासमाज
             </h1>
-            <h1 className="text-sm uppercase sm:text-lg md:text-[1.32rem]">
+            <h1 className="text-sm uppercase text-yellow-500 sm:text-lg md:text-[1.32rem]">
               Kaudinya Gotriya MahaSamaj
             </h1>
             <div>
               <div className=" h-[1px] bg-primary md:h-[3px]" />
-              <div className="mt-[1px] h-[1px] bg-red-600 md:h-[3px]" />
+              <div className="mt-[1px] h-[1px] bg-yellow-600 md:h-[3px]" />
             </div>
           </div>
         </div>

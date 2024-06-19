@@ -4,56 +4,12 @@ import { H2, P } from "../typography";
 import { Image } from "lucide-react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import { Gallery } from "@/server/models/Gallery";
+import News from "@/server/models/News";
 
-const GallaryNotice = ({ lang }: { lang: string }) => {
-  const galleryData = [
-    {
-      _id: "1",
-      title: "Gallery 1",
-      images: "/rishi/rishi.svg",
-    },
-    {
-      _id: "2",
-      title: "Gallery 2",
-      images: "/rishi/rishi.svg",
-    },
-    {
-      _id: "3",
-      title: "Gallery 3",
-      images: "/rishi/rishi.svg",
-    },
-    {
-      _id: "4",
-      title: "Gallery 4",
-      images: "/rishi/rishi.svg",
-    },
-  ];
-  const Impnotices = [
-    {
-      title: "केन्द्रिय कार्य समिती वैठक, साधारणसभा सूचना ",
-      content:
-        "आचार्य बन्धु समाज नेपालले आफ्नो प्रकाशित २०८१ सालको क्यालेण्डर केन्द्रीय कार्यालयमा विमोचन गरेको छ ।",
-      date: "2024-05-10",
-    },
-    {
-      title: "केन्द्रिय कार्य समिती वैठक, साधारणसभा सूचना ",
-      content:
-        "आचार्य बन्धु समाज नेपालले आफ्नो प्रकाशित २०८१ सालको क्यालेण्डर केन्द्रीय कार्यालयमा विमोचन गरेको छ ।",
-      date: "2024-05-10",
-    },
-    {
-      title: "केन्द्रिय कार्य समिती वैठक, साधारणसभा सूचना ",
-      content:
-        "आचार्य बन्धु समाज नेपालले आफ्नो प्रकाशित २०८१ सालको क्यालेण्डर केन्द्रीय कार्यालयमा विमोचन गरेको छ ।",
-      date: "2024-05-10",
-    },
-    {
-      title: "केन्द्रिय कार्य समिती वैठक, साधारणसभा सूचना ",
-      content:
-        "आचार्य बन्धु समाज नेपालले आफ्नो प्रकाशित २०८१ सालको क्यालेण्डर केन्द्रीय कार्यालयमा विमोचन गरेको छ ।",
-      date: "2024-05-10",
-    },
-  ];
+const GallaryNotice = async ({ lang }: { lang: string }) => {
+  const gallries = await Gallery.find().populate("photos").limit(4);
+  const news = await News.find().limit(3);
 
   return (
     <section className=" py-10">
@@ -70,22 +26,22 @@ const GallaryNotice = ({ lang }: { lang: string }) => {
             </div>
             <div className="px-4 py-8">
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
-                {galleryData.map((gallary, index) => (
+                {gallries.map((g, index) => (
                   <Link
-                    href={`/gallery/${gallary._id}`}
+                    href={`/gallery/${g._id}`}
                     key={index}
-                    className="w-full space-y-2 transition-shadow duration-300 hover:shadow-lg"
+                    className="w-full space-y-2 rounded-lg p-2 transition-shadow duration-300 hover:shadow-lg"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <p className="font-medium">{gallary.title}</p>
+                      <p className="line-clamp-1 font-medium">{g.title}</p>
                       <p className="flex items-center gap-2">
                         <Image size={20} />
-                        {gallary.images.length}
+                        {g?.images?.length}
                       </p>
                     </div>
                     <div>
                       <img
-                        src={gallary.images}
+                        src={g.photos[0]?.url}
                         alt="gallery"
                         height={400}
                         width={400}
@@ -109,22 +65,25 @@ const GallaryNotice = ({ lang }: { lang: string }) => {
               </a>
             </div>
             <div className=" overflow-y-auto px-4 py-16">
-              <div className="grid grid-cols-1 ">
-                {Impnotices.slice(0, 3).map((item, index) => (
-                  <Card
-                    key={index}
-                    className="mb-6 w-full rounded border-black bg-white transition-shadow duration-300 hover:shadow-xl"
-                  >
-                    <CardContent className="flex flex-col p-4">
-                      <div>
-                        <P>{item.date}</P>
-                        <H2 className=" text-lg font-medium">{item.title}</H2>
-                      </div>
-                      <div>
-                        <P className="text-gray-500">{item.content}</P>
-                      </div>
-                    </CardContent>
-                  </Card>
+              <div className="grid grid-cols-1 gap-y-3">
+                {news.map((item, index) => (
+                  <Link href={`/news/${item._id}`}>
+                    <Card key={index} className="relative">
+                      <CardContent className="flex flex-col p-4">
+                        <div>
+                          <P>{item.date}</P>
+                          <H2 className="line-clamp-2 text-lg font-medium">
+                            {item.title}
+                          </H2>
+                        </div>
+                        <div>
+                          <P className="line-clamp-2 leading-loose text-muted-foreground">
+                            {item.desc}
+                          </P>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 ))}
               </div>
             </div>

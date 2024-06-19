@@ -167,7 +167,10 @@ const Footer = ({ lang }: { lang: string }) => {
         </div>
       </div>
       <div className="mt-8 flex flex-col justify-between gap-y-2 text-sm md:flex-row">
-        <span>&copy; Copyright {year} Satalok. All rights reserved.</span>
+        <span>
+          &copy; Copyright {year} Kaudinya Gotriya Maha samaj. All rights
+          reserved.
+        </span>
         <span>
           Powered by :{" "}
           <Link

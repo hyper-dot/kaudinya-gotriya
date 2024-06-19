@@ -1,5 +1,5 @@
 import React from "react";
-import { HomeCarousel, Welcome, Mission, Gallery } from "@/components/home";
+import { HomeCarousel, Welcome, Mission } from "@/components/home";
 import DashboardNotice from "@/server/models/DashboardNotice";
 import connectDB from "@/server/utils/connectDB";
 import Message from "@/components/home/Message";
@@ -17,7 +17,8 @@ const page = async ({ params }: { params: { lang: string } }) => {
       )}
       <Welcome lang={lang} />
       <Mission lang={lang} />
-      <Gallery lang={lang} />
+      {/* 
+      <Gallery lang={lang} /> */}
       <Message lang={lang} />
       <GallaryNotice lang={lang} />
     </main>
