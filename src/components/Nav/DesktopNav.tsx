@@ -17,7 +17,7 @@ import {
 
 import styles from "./Navbar.module.css";
 import Link from "next/link";
-import { menus, services, about, others } from "./menus";
+import { menus, services, about } from "./menus";
 import MobileNav from "./MobileNav";
 
 const DesktopNav = ({ lang }: { lang: string }) => {
@@ -54,37 +54,13 @@ const DesktopNav = ({ lang }: { lang: string }) => {
                   {m.title} <ChevronDown size={18} strokeWidth={1} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {about[lang as keyof typeof about].map((a, idx) =>
-                    a.to === "/others" ? (
-                      <DropdownMenuSub key={idx}>
-                        <DropdownMenuSubTrigger>
-                          {a.title}
-                        </DropdownMenuSubTrigger>
-                        <DropdownMenuPortal>
-                          <DropdownMenuSubContent>
-                            {others[lang as keyof typeof others].map(
-                              (menu, idx) => (
-                                <DropdownMenuItem key={idx} asChild>
-                                  <Link
-                                    className="h-full w-full"
-                                    href={`/about/${menu.to}`}
-                                  >
-                                    {menu.title}
-                                  </Link>
-                                </DropdownMenuItem>
-                              ),
-                            )}
-                          </DropdownMenuSubContent>
-                        </DropdownMenuPortal>
-                      </DropdownMenuSub>
-                    ) : (
-                      <DropdownMenuItem asChild key={idx + 3232}>
-                        <Link className="h-full w-full" href={`/about/${a.to}`}>
-                          {a.title}
-                        </Link>
-                      </DropdownMenuItem>
-                    ),
-                  )}
+                  {about[lang as keyof typeof about].map((a, idx) => (
+                    <DropdownMenuItem asChild key={idx + 3232}>
+                      <Link className="h-full w-full" href={`/about/${a.to}`}>
+                        {a.title}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
@@ -111,7 +87,7 @@ const DesktopNav = ({ lang }: { lang: string }) => {
           <li
             className="flex cursor-pointer items-center uppercase"
             onClick={() => {
-              if (lang === "np") {
+              if (lang !== "np") {
                 Cookie.set("lang", "en");
                 router.refresh();
               } else {
@@ -121,7 +97,7 @@ const DesktopNav = ({ lang }: { lang: string }) => {
             }}
           >
             <img
-              src={lang === "np" ? "/nep.svg" : "eng.svg"}
+              src={lang == "np" ? "/nep.svg" : "eng.svg"}
               height={24}
               width={24}
               alt=""
