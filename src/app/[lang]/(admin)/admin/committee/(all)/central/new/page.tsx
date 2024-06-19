@@ -51,7 +51,7 @@ const page = () => {
         position,
         image: { public_id, secure_url },
         isChairman: isChairman,
-        group: "audit",
+        group: "central",
       });
       toast({
         variant: res.success ? "success" : "destructive",

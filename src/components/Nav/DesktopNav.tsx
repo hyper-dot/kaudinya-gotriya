@@ -9,10 +9,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuPortal,
-  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 
 import styles from "./Navbar.module.css";
@@ -87,7 +83,7 @@ const DesktopNav = ({ lang }: { lang: string }) => {
           <li
             className="flex cursor-pointer items-center uppercase"
             onClick={() => {
-              if (lang !== "np") {
+              if (lang == "np") {
                 Cookie.set("lang", "en");
                 router.refresh();
               } else {
@@ -97,12 +93,12 @@ const DesktopNav = ({ lang }: { lang: string }) => {
             }}
           >
             <img
-              src={lang == "np" ? "/nep.svg" : "eng.svg"}
+              src={lang !== "np" ? "/nep.svg" : "/eng.svg"}
               height={24}
               width={24}
               alt=""
             />
-            {lang}
+            {lang === "np" ? "en" : "np"}
           </li>
         </ul>
       </nav>

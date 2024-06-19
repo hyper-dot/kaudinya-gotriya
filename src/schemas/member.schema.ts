@@ -48,13 +48,11 @@ export type TMemberEditForm = z.infer<typeof memberEditSchema>;
 
 export const memberServer = z.object({
   group: z.enum([
-    "bod",
-    "audit",
-    "credit",
-    "education",
+    "executive",
+    "departmental",
+    "central",
+    "provincial",
     "advisory",
-    "unit",
-    "management",
   ]),
   name: z.string().min(1),
   position: z.string().min(1),

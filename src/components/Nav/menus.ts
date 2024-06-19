@@ -105,6 +105,7 @@ export const about = {
   en: [
     { title: "About Us", to: "/" },
     { title: "Message From The Chairman", to: "/chairman" },
+    { title: "Executive Committee", to: "/executive" },
     { title: "Central Committee", to: "/central" },
     { title: "Province Comittee", to: "/province" },
     { title: "Department Heads", to: "/management" },
@@ -113,6 +114,7 @@ export const about = {
   np: [
     { title: "हाम्रो बारेमा", to: "/" },
     { title: "अध्यक्षको सन्देश", to: "/chairman" },
+    { title: "कार्यकारी समिति", to: "/executive" },
     { title: "केन्द्रिय समिति", to: "/bod" },
     { title: "प्रदेशीय समिति", to: "/province" },
     { title: "विभागीय प्रमुख", to: "/department" },
