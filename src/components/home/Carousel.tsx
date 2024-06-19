@@ -36,7 +36,7 @@ export function HomeCarousel({ notices }: { notices: string }) {
       setApi={setApi}
       plugins={[
         Autoplay({
-          delay: 5000,
+          delay: 4000,
         }),
       ]}
       opts={{ loop: true }}
@@ -56,7 +56,7 @@ export function HomeCarousel({ notices }: { notices: string }) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="absolute left-5" />
+      {/* <CarouselPrevious className="absolute left-5" />
       <CarouselNext className="absolute right-5" />
       <div className="absolute bottom-0 flex w-full justify-center gap-3 py-4">
         {noticeArr.map((notice: any, idx: number) => (
@@ -69,7 +69,7 @@ export function HomeCarousel({ notices }: { notices: string }) {
             )}
           />
         ))}
-      </div>
+      </div> */}
     </Carousel>
   );
 }
