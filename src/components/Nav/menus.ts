@@ -115,7 +115,7 @@ export const about = {
     { title: "हाम्रो बारेमा", to: "/" },
     { title: "अध्यक्षको सन्देश", to: "/chairman" },
     { title: "कार्यकारी समिति", to: "/executive" },
-    { title: "केन्द्रिय समिति", to: "/bod" },
+    { title: "केन्द्रिय समिति", to: "/central" },
     { title: "प्रदेशीय समिति", to: "/province" },
     { title: "विभागीय प्रमुख", to: "/department" },
     { title: "सल्हाकार समिति", to: "/advisor" },

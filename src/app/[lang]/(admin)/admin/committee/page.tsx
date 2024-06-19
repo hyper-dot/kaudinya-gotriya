@@ -3,13 +3,11 @@ import Link from "next/link";
 import { H2 } from "@/components/typography";
 
 const links = [
-  { title: "Board of Directors", to: "/bod" },
-  { title: "Audit Committee", to: "/audit" },
-  { title: "Credit Committee", to: "/credit" },
-  { title: "Education Committee", to: "/education" },
-  { title: "Advisory Committee", to: "/advisory" },
-  { title: "Unit Committee", to: "/unit" },
-  { title: "Management Teams", to: "/management" },
+  { title: "Advisory Comittee", to: "/advisory" },
+  { title: "Central Comittee", to: "/central" },
+  { title: "Departmental Heads", to: "/departmental" },
+  { title: "Executive Comittee", to: "/executive" },
+  { title: "Provincial Comittee", to: "/province" },
 ];
 
 const page = () => {
