@@ -8,7 +8,7 @@ const content = {
     headOffice: "केन्द्रिय कार्यालय",
     contact: "सम्पर्क ",
     phone: "सम्पर्क नम्बर",
-    address: "बिर्तामोड ५, झापा, नेपाल ",
+    address: "केन्द्रीय कार्यालय , कोटेश्वर , काठमाडौं ",
     opposite: "आदर्श ब्यान्क्वेट नजिक",
     visitUs: "ठेगाना",
     num1: "९८०१४४२३३९",
@@ -20,7 +20,7 @@ const content = {
     headOffice: "Head Office",
     contact: "Contact Details",
     phone: "Phone No.",
-    address: "Birtamode-4, Jhapa, Nepal",
+    address: "Head Office, Koteshwor, Kathmandu",
     opposite: "Near Adarsha Banquet",
     visitUs: "Visit Us",
     num1: "9801442339",
@@ -71,7 +71,7 @@ export const Content = ({ lang }: { lang: string }) => {
           <li className="flex gap-2">
             <IoMail size={16} />
             {content[lang as keyof typeof content].email} :<br />
-            smcoop2065@gmail.com
+            kaugmas1@gmail.com
           </li>
         </ul>
       </div>
