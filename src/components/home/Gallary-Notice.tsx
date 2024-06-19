@@ -108,9 +108,9 @@ const GallaryNotice = ({ lang }: { lang: string }) => {
                 See All
               </a>
             </div>
-            <div className=" overflow-y-auto px-4 py-16">
+            <div className="h-[620px] overflow-y-auto px-4 py-16">
               <div className="grid grid-cols-1 ">
-                {Impnotices.slice(0, 3).map((item, index) => (
+                {Impnotices.map((item, index) => (
                   <Card
                     key={index}
                     className="mb-6 w-full rounded border-black bg-white transition-shadow duration-300 hover:shadow-xl"
