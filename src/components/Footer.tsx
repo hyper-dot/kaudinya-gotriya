@@ -60,7 +60,7 @@ const Footer = ({ lang }: { lang: string }) => {
 
               <li className="flex items-center gap-2">
                 <IoMail size={16} />
-                smcoop2065@gmail.com
+                kaugmas1@gmail.com
               </li>
             </ul>
           </div>

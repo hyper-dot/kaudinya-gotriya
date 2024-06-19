@@ -2,6 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { H1 } from "@/components/typography";
 
+// kendraya samiti
+// province
+// bidhes samiti
+// paramarsha
+// sallakar
+
 const page = ({ params }: { params: { lang: string } }) => {
   const { lang } = params;
   return (

@@ -21,8 +21,8 @@ const NoticeOverlay = dynamic(() => import("@/components/Notice"), {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Satalok Multipurpose Sahakari Sanstha Ltd",
-  description: "Satalok is a multipurpose cooprative based in ...",
+  title: "Kaudinya Gotriya Mahasamaj",
+  description: "Federation of Kaudinya Gotriya Society",
 };
 
 export default async function RootLayout({

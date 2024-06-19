@@ -105,32 +105,17 @@ export const about = {
   en: [
     { title: "About Us", to: "/" },
     { title: "Message From The Chairman", to: "/chairman" },
-    { title: "Board Of Directors", to: "/bod" },
-    { title: "Audit Committee", to: "/audit" },
-    { title: "Management Committee", to: "/management" },
-    { title: "Other Committee", to: "/others" },
+    { title: "Central Committee", to: "/central" },
+    { title: "Province Comittee", to: "/province" },
+    { title: "Department Heads", to: "/management" },
+    { title: "Advisor Committee", to: "/advisor" },
   ],
   np: [
     { title: "हाम्रो बारेमा", to: "/" },
     { title: "अध्यक्षको सन्देश", to: "/chairman" },
-    { title: "संचालक समिति", to: "/bod" },
-    { title: "लेखा समिति", to: "/audit" },
-    { title: "ब्यवस्थापन समिति", to: "/management" },
-    { title: "अन्य समिति", to: "/others" },
-  ],
-};
-
-export const others = {
-  en: [
-    { title: "Credit Committee", to: "/credit" },
-    { title: "Education Committee", to: "/education" },
-    { title: "Unit Committee", to: "/unit" },
-    { title: "Advisor Committee", to: "/advisor" },
-  ],
-  np: [
-    { title: "ऋण उप-समिति", to: "/credit" },
-    { title: "शिक्षा उप-समिति", to: "/education" },
-    { title: "एकाइ समिति", to: "/unit" },
-    { title: "सल्लाहकार समिति", to: "/advisor" },
+    { title: "केन्द्रिय समिति", to: "/bod" },
+    { title: "प्रदेशीय समिति", to: "/province" },
+    { title: "विभागीय प्रमुख", to: "/department" },
+    { title: "सल्हाकार समिति", to: "/advisor" },
   ],
 };

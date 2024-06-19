@@ -1,6 +1,7 @@
 import React from "react";
 import { Mail, Phone } from "lucide-react";
 import { Button } from "../ui/button";
+import ContributionDialog from "../DonationDialog";
 
 const Header = () => {
   return (
@@ -36,11 +37,11 @@ const Header = () => {
             </span>
             <span className="flex items-center gap-2 text-sm lg:text-base">
               <Mail className="w-4 lg:w-5" />
-              <span>roshan@gmail.com</span>
+              <span>kaugmas1@gmail.com</span>
             </span>
           </div>
           <div className="hidden lg:block">का.जि.प्र. दर्ता न. : 173/078</div>
-          <Button>Donate</Button>
+          <ContributionDialog />
         </div>
       </div>
     </header>
