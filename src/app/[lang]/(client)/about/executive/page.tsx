@@ -1,18 +1,24 @@
-import PersonCard from "@/components/about/PersonCard";
 import Member from "@/server/models/Member";
 import { notFound } from "next/navigation";
 import connectDB from "@/server/utils/connectDB";
+import PersonCard from "@/components/about/PersonCard";
 
 const content = {
-  np: "लेखा समिति",
-  en: "Audit Committee",
+  np: "कार्यकारी समिति",
+  en: "Executive Comittee",
 };
 
 const page = async ({ params }: { params: { lang: string } }) => {
   try {
     await connectDB();
-    const members = await Member.find({ group: "audit", isChairman: false });
-    const chairman = await Member.findOne({ group: "audit", isChairman: true });
+    const members = await Member.find({
+      group: "executive",
+      isChairman: false,
+    });
+    const chairman = await Member.findOne({
+      group: "executive",
+      isChairman: true,
+    });
 
     return (
       <div>
@@ -31,7 +37,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
         <div
           style={{
             background:
-              "url(/about/bod/dots.svg) no-repeat 5% 5% /8%, url(/about/bod/circleHalf.svg) no-repeat 100% 0% / 10%, url(/about/bod/random.svg) no-repeat 0% 100% /15%, url(/about/bod/circles.svg) no-repeat 50% 95% / 20%",
+              "url(/about/bod/dots.svg) no-repeat 5% 5% /8%, url(/about/bod/circleHalf.svg) no-repeat 100% 0% / 10%, url(/about/bod/random.svg) no-repeat 0% 100% /15%, url(/about/bod/circles.svg) no-repeat 50% 98% / 20%",
           }}
           className="pb-32"
         >
@@ -43,7 +49,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
               public_id={chairman.image.public_id}
             />
           </div>
-          <div className="item-center mx-auto flex max-w-[80%] flex-wrap justify-center gap-24">
+          <div className="mx-auto flex max-w-[80%] flex-wrap justify-center gap-24">
             {members.map((m, i) => (
               <PersonCard
                 name={m.name}

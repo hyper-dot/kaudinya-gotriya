@@ -1,22 +1,22 @@
+import PersonCard from "@/components/about/PersonCard";
 import Member from "@/server/models/Member";
 import { notFound } from "next/navigation";
 import connectDB from "@/server/utils/connectDB";
-import PersonCard from "@/components/about/PersonCard";
 
 const content = {
-  np: "व्यवस्थापन टोली",
-  en: "Management Team",
+  np: "विभागीय समिति",
+  en: "Departmental Committee",
 };
 
 const page = async ({ params }: { params: { lang: string } }) => {
   try {
     await connectDB();
     const members = await Member.find({
-      group: "management",
+      group: "departmental",
       isChairman: false,
     });
     const chairman = await Member.findOne({
-      group: "management",
+      group: "departmental",
       isChairman: true,
     });
 
@@ -49,7 +49,7 @@ const page = async ({ params }: { params: { lang: string } }) => {
               public_id={chairman.image.public_id}
             />
           </div>
-          <div className="mx-auto flex max-w-[80%] flex-wrap justify-center gap-24">
+          <div className="item-center mx-auto flex max-w-[80%] flex-wrap justify-center gap-24">
             {members.map((m, i) => (
               <PersonCard
                 name={m.name}

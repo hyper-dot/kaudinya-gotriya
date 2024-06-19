@@ -4,16 +4,19 @@ import { notFound } from "next/navigation";
 import connectDB from "@/server/utils/connectDB";
 
 const content = {
-  np: "ऋण समिति",
-  en: "Credit Committee",
+  np: "केन्द्रिय समिति",
+  en: "Central Committee",
 };
 
 const page = async ({ params }: { params: { lang: string } }) => {
   try {
     await connectDB();
-    const members = await Member.find({ group: "credit", isChairman: false });
+    const members = await Member.find({
+      group: "education",
+      isChairman: false,
+    });
     const chairman = await Member.findOne({
-      group: "credit",
+      group: "education",
       isChairman: true,
     });
 
