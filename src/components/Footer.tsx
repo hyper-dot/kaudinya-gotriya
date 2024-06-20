@@ -8,7 +8,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-import { about, others, services } from "./Nav/menus";
+import { about, services } from "./Nav/menus";
 import { dictionary } from "@/dictionairy";
 import { Phone } from "lucide-react";
 
@@ -20,7 +20,7 @@ const Footer = ({ lang }: { lang: string }) => {
       <div className="flex flex-col justify-between gap-y-8 xl:flex-row">
         <div className="flex flex-col items-start gap-4 md:flex-row lg:gap-2">
           <div className="mt-8 flex items-center  gap-4 pb-4 md:mt-0">
-            <img src="/logo.png" alt="logo" className="w-[80px]" />
+            <img src="/logo.svg" alt="logo" className="w-[80px]" />
             <h1 className="mb-4 flex flex-col text-xl font-bold md:hidden">
               <span>
                 {dictionary[lang as keyof typeof dictionary].companyname}
@@ -94,50 +94,6 @@ const Footer = ({ lang }: { lang: string }) => {
               <li>
                 <Link href="/login">Login</Link>
               </li>
-            </ul>
-          </div>
-          <div>
-            <h3
-              className={`mb-2 font-semibold ${lang === "np" ? "text-xl" : "text-md"}`}
-            >
-              {dictionary[lang as keyof typeof dictionary].services}
-            </h3>
-            <ul
-              className={`flex flex-col gap-2 ${lang === "np" ? "text-md" : "text-xs"}`}
-            >
-              {services[lang as keyof typeof services].map((s, idx) => (
-                <li key={idx}>
-                  <Link href={`/services/${s.to}`}>{s.title}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3
-              className={`mb-2 font-semibold ${lang === "np" ? "text-xl" : "text-md"}`}
-            >
-              {dictionary[lang as keyof typeof dictionary].committee}
-            </h3>
-
-            <ul
-              className={`flex flex-col gap-2 ${lang === "np" ? "text-md" : "text-xs"}`}
-            >
-              {about[lang as keyof typeof about].map((m, aboutIdx) =>
-                m.to === "/others" ? (
-                  <>
-                    {others[lang as keyof typeof others].map((o, othersIdx) => (
-                      <li key={othersIdx}>
-                        <Link href={`/about/${o.to}`}>{o.title}</Link>
-                      </li>
-                    ))}
-                  </>
-                ) : (
-                  <li key={aboutIdx}>
-                    <Link href={`/about/${m.to}`}>{m.title}</Link>
-                  </li>
-                ),
-              )}
             </ul>
           </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { H2, H1 } from "../typography";
+import { H1 } from "../typography";
 import { homeDictionary } from "@/dictionary/home";
 import { Button } from "../ui/button";
 import Image from "next/image";

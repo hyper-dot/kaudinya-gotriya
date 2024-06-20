@@ -4,15 +4,6 @@ const memberSchema = new Schema(
   {
     group: {
       type: String,
-      enum: [
-        "bod",
-        "audit",
-        "credit",
-        "education",
-        "advisory",
-        "unit",
-        "management",
-      ],
       required: true,
     },
     image: {

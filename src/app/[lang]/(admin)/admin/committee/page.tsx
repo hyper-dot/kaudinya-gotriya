@@ -7,7 +7,7 @@ const links = [
   { title: "Central Comittee", to: "/central" },
   { title: "Departmental Heads", to: "/departmental" },
   { title: "Executive Comittee", to: "/executive" },
-  { title: "Provincial Comittee", to: "/province" },
+  { title: "Provincial Comittee", to: "/provincial" },
 ];
 
 const page = () => {

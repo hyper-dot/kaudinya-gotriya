@@ -9,7 +9,7 @@ const Header = () => {
       <div className="flex flex-wrap items-center justify-between gap-y-2 px-1 py-4 md:px-8">
         <div className="flex items-center gap-6 lg:gap-16">
           <img
-            src="/logo.png"
+            src="/logo.svg"
             alt=""
             height={100}
             width={100}
