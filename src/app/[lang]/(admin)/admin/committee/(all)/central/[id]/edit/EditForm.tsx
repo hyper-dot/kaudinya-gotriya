@@ -19,10 +19,7 @@ import {
   getCloudinaryApiKey,
   getCloudinaryUploadUri,
 } from "@/app/[lang]/(admin)/admin/news/new/constants";
-import {
-  addNewMember,
-  updateMember,
-} from "@/server/actions/members/members.action";
+import { updateMember } from "@/server/actions/members/members.action";
 
 const EditBodMember = ({ data }: { data: string }) => {
   const person = JSON.parse(data);

@@ -20,13 +20,11 @@ export type TMemberForm = z.infer<typeof memberSchema>;
 
 export const memberEditSchema = z.object({
   group: z.enum([
-    "bod",
-    "audit",
-    "credit",
-    "education",
+    "executive",
+    "departmental",
+    "central",
+    "provincial",
     "advisory",
-    "unit",
-    "management",
   ]),
   name: z.string().min(1, { message: "Full name is required." }),
   position: z.string().min(1, { message: "Position is required." }),

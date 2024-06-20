@@ -3,7 +3,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import LanguageSwitcher from "../Header/LanguageSwitcher";
-import { menus, services, about, others } from "./menus";
+import { menus, services, about } from "./menus";
 import { MenuIcon, X, ChevronDown } from "lucide-react";
 
 const MobileNav = ({ lang }: { lang: string }) => {
@@ -74,24 +74,6 @@ const MobileNav = ({ lang }: { lang: string }) => {
                             className={otherCommittee ? "rotate-180" : ""}
                           />
                         </p>
-                        <ul
-                          className={`overflow-hidden px-4 transition-all duration-300 ${otherCommittee ? "h-[150px]" : "h-0"}`}
-                          key={`otherCommittee_${aboutIdx}`}
-                        >
-                          {others[lang as keyof typeof others].map(
-                            (m, committeeIdx) => (
-                              <li key={`committee_${committeeIdx}`}>
-                                <Link
-                                  onClick={handleClose}
-                                  className={`block px-2 py-2 text-sm ${pathname === `/about/${m.to}` && "bg-yellow-600"}`}
-                                  href={`/about/${m.to}`}
-                                >
-                                  {m.title}
-                                </Link>
-                              </li>
-                            ),
-                          )}
-                        </ul>
                       </div>
                     ) : (
                       <li
