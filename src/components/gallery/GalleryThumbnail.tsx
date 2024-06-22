@@ -14,7 +14,7 @@ export const GalleryThumbnail = async ({ id }: { id: string }) => {
         style={{
           backgroundImage: `url(${gallery.photos[0].url})`,
         }}
-        className="img-hover no-repeat relative flex h-[250px] w-[300px] items-end rounded-md md:w-[350px] xl:w-[400px]"
+        className="img-hover no-repeat relative flex h-[250px] w-[300px] items-end rounded-md bg-white md:w-[350px] xl:w-[400px]"
       >
         <div className="absolute right-4 top-4 flex gap-2 text-white">
           <GrGallery size={24} /> {gallery.photos.length}

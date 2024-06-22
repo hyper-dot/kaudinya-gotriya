@@ -2,7 +2,6 @@ import React from "react";
 import { HomeCarousel, Welcome, Mission } from "@/components/home";
 import DashboardNotice from "@/server/models/DashboardNotice";
 import connectDB from "@/server/utils/connectDB";
-import Message from "@/components/home/Message";
 import GallaryNotice from "@/components/home/Gallary-Notice";
 
 const page = async ({ params }: { params: { lang: string } }) => {
