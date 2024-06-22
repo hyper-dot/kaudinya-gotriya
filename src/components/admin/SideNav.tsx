@@ -79,8 +79,8 @@ const SideNav = () => {
     <div className="flex h-screen w-[220px] flex-col bg-neutral-100">
       <div>
         <Link className="flex items-center gap-2 p-2" href="/">
-          <Image src="/logo.png" alt="logo" width={50} height={50} />
-          <span className="font-bold text-primary">Satlok Sahakari</span>
+          <Image src="/logo.svg" alt="logo" width={50} height={50} />
+          <span className="font-bold text-primary">Kaudinya Gotriya</span>
         </Link>
       </div>
 
