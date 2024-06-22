@@ -32,7 +32,7 @@ export const Welcome = ({ lang }: { lang: string }) => {
           </p>
           <Button asChild variant="outline" className="border-primary">
             <Link
-              href="/about"
+              href="/kaudinya-rishi"
               className="block py-3 text-center text-lg text-primary md:py-4 md:text-xl"
             >
               View More

@@ -1,6 +1,5 @@
 import React from "react";
 import { Mail, Phone } from "lucide-react";
-import { Button } from "../ui/button";
 import ContributionDialog from "../DonationDialog";
 
 const Header = () => {
@@ -33,7 +32,7 @@ const Header = () => {
           <div className="flex flex-col gap-x-4 md:gap-y-3">
             <span className="flex items-center gap-2 text-sm lg:text-base">
               <Phone className="w-4 lg:w-5" />
-              <span>98xxxxxxxx</span>
+              <span>9851027283</span>
             </span>
             <span className="flex items-center gap-2 text-sm lg:text-base">
               <Mail className="w-4 lg:w-5" />

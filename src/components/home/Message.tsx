@@ -56,17 +56,6 @@ const Message = ({ lang }: { lang: string }) => {
             </p>
           </div>
         </div>
-
-        <div className="flex justify-end">
-          <Button asChild variant="outline" className="border-primary">
-            <Link
-              href="/about"
-              className="block py-3 text-center text-lg text-primary md:py-4 md:text-xl"
-            >
-              View More
-            </Link>
-          </Button>
-        </div>
       </div>
     </div>
   );

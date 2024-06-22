@@ -19,7 +19,8 @@ const page = async ({ params }: { params: { lang: string } }) => {
       <Mission lang={lang} />
       {/* 
       <Gallery lang={lang} /> */}
-      <Message lang={lang} />
+      {/* 
+      <Message lang={lang} /> */}
       <GallaryNotice lang={lang} />
     </main>
   );

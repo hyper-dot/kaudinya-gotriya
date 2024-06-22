@@ -25,15 +25,7 @@ const dictionary = {
   },
 };
 
-type TContributionProps = {
-  imgurl?: string;
-  bankName?: string;
-  accName?: string;
-  accNo?: string;
-  children?: ReactNode;
-};
-const ContributionDialog: FC<TContributionProps> = ({}) => {
-  //   const lang = getCookie("lang") || "np";
+const ContributionDialog = () => {
   const lang = "np";
   const dict = dictionary[lang as keyof typeof dictionary];
   return (
@@ -43,19 +35,20 @@ const ContributionDialog: FC<TContributionProps> = ({}) => {
       </DialogTrigger>
       <DialogContent className="w-fit">
         <DialogHeader>
-          <DialogTitle>{dict.contribution_details}</DialogTitle>
+          <DialogTitle>To Donate</DialogTitle>
         </DialogHeader>
-        <div>
-          <img src="/qr.webp" alt="QR image" width={400} height={400} />
+        <div className="space-y-10">
+          <img src="/globalime.svg" alt="QR image" width={400} height={400} />
           <ul className="min-w-[250px]">
             <li className="flex gap-2">
-              <Label>{dict.bank_name} :</Label> Nepal Rastra Bank
+              <Label>{dict.bank_name} :</Label> Global IME Bank (MID Baneshwor
+              Bank)
             </li>
             <li className="flex gap-2">
-              <Label>{dict.acc_name} :</Label> Godar Thapa Donation Account
+              <Label>{dict.acc_name} :</Label> Kaudaniya Gotriya Mahasamaj
             </li>
             <li className="flex gap-2">
-              <Label>{dict.acc_no} :</Label> 9012093041981
+              <Label>{dict.acc_no} :</Label> 02901010008372
             </li>
           </ul>
         </div>

@@ -8,11 +8,9 @@ const content = {
     headOffice: "केन्द्रिय कार्यालय",
     contact: "सम्पर्क ",
     phone: "सम्पर्क नम्बर",
-    address: "बिर्तामोड ५, झापा, नेपाल ",
-    opposite: "आदर्श ब्यान्क्वेट नजिक",
+    address: "कोटेश्वर , काठमाडौं",
     visitUs: "ठेगाना",
-    num1: "९८०१४४२३३९",
-    num2: "०२३-५४३९३९४",
+    num: "9851027283",
     email: "इमेल",
     contactDetails: "सम्पर्क विवरण",
   },
@@ -20,11 +18,9 @@ const content = {
     headOffice: "Head Office",
     contact: "Contact Details",
     phone: "Phone No.",
-    address: "Birtamode-4, Jhapa, Nepal",
-    opposite: "Near Adarsha Banquet",
+    address: "Koteshwor, Kathmandu",
     visitUs: "Visit Us",
-    num1: "9801442339",
-    num2: "023-5439394",
+    num: "9851027283",
     email: "Email Us",
     contactDetails: "Contact Details",
   },
@@ -57,21 +53,19 @@ export const Content = ({ lang }: { lang: string }) => {
           <li className="flex gap-2">
             <Phone fill="black" size={16} />{" "}
             {content[lang as keyof typeof content].phone} : <br />
-            {content[lang as keyof typeof content].num2} <br />
-            {content[lang as keyof typeof content].num1} <br />
+            {content[lang as keyof typeof content].num} <br />
           </li>
 
           <li className="flex gap-2">
             <FaMapMarkerAlt size={16} />{" "}
             {content[lang as keyof typeof content].visitUs} :<br />
-            {content[lang as keyof typeof content].opposite} <br />
             {content[lang as keyof typeof content].address} <br />
           </li>
 
           <li className="flex gap-2">
             <IoMail size={16} />
             {content[lang as keyof typeof content].email} :<br />
-            smcoop2065@gmail.com
+            kaugmas1@gmail.com
           </li>
         </ul>
       </div>

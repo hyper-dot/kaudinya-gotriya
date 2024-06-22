@@ -7,10 +7,20 @@ import {
   FaViber,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-
-import { about, services } from "./Nav/menus";
 import { dictionary } from "@/dictionairy";
 import { Phone } from "lucide-react";
+import { about } from "./Nav/menus";
+
+const quickLinks = [
+  { title: "Nepal Goverment Portal", to: "https://www.nepal.gov.np/" },
+  {
+    title: "Local Level Government",
+    to: "https://sthaniya.gov.np/gis/website/",
+  },
+  { title: "Tribhuvan University", to: "https://tu.edu.np/" },
+  { title: "Nepal Police", to: "https://nepalpolice.gov.np/" },
+  { title: "Nepal Stock Exchange", to: "https://nepalstock.com/" },
+];
 
 const Footer = ({ lang }: { lang: string }) => {
   const date = new Date();
@@ -55,7 +65,7 @@ const Footer = ({ lang }: { lang: string }) => {
 
               <li className="flex items-center gap-2">
                 <Phone fill="white" size={16} />
-                {dictionary[lang as keyof typeof dictionary].phone}
+                9851027283
               </li>
 
               <li className="flex items-center gap-2">
@@ -68,32 +78,33 @@ const Footer = ({ lang }: { lang: string }) => {
 
         <div className="min-w-1/2 flex flex-col gap-y-8 md:mx-auto md:flex-row md:gap-8 xl:mx-0">
           <div>
+            <h3 className="mb-2 font-semibold">Quick Links</h3>
+            <ul className="flex flex-col gap-2 text-xs">
+              {quickLinks.map((item, idx) => (
+                <li key={idx}>
+                  <Link href={item.to} target="_blank">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <h3
               className={`mb-2 font-semibold ${lang === "np" ? "text-xl" : "text-md"}`}
             >
-              {dictionary[lang as keyof typeof dictionary].company}
+              Company
             </h3>
-            <ul
-              className={`flex flex-col gap-2 ${lang === "np" ? "text-md" : "text-xs"}`}
-            >
-              <li>
-                <Link href="/contact">
-                  {dictionary[lang as keyof typeof dictionary].feedback}
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  {dictionary[lang as keyof typeof dictionary].tos}
-                </Link>
-              </li>
-              <li>
-                <Link href="#">
-                  {dictionary[lang as keyof typeof dictionary].career}
-                </Link>
-              </li>
-              <li>
-                <Link href="/login">Login</Link>
-              </li>
+
+            <ul className="flex flex-col gap-2 text-xs">
+              {about.en.map((item, idx) => (
+                <li key={idx}>
+                  <Link href={item.to} target="_blank">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -101,20 +112,20 @@ const Footer = ({ lang }: { lang: string }) => {
             <h3 className="mb-2 font-semibold">Join us on Social Medias</h3>
             <ul className="flex gap-8 text-sm md:justify-around">
               <li className="rounded-full border-2 p-2">
-                <Link href="https://wa.me/9801442339" target="_blank">
+                <Link href="https://wa.me/9851027283" target="_blank">
                   <FaWhatsapp size={20} />
                 </Link>
               </li>
               <li className="rounded-full border-2 p-2">
                 <Link
-                  href="https://www.facebook.com/profile.php?id=100075881983885"
+                  href="https://www.facebook.com/Kaugmas/?paipv=0&eav=AfYiUbnRpkcW43qBL5Xb6efXUYmFXX0tNX9c7ienrw5BFo-OXJJGI3hgSoGBLwmL3mA&_rdr"
                   target="blank"
                 >
                   <FaFacebook size={20} />
                 </Link>
               </li>
               <li className="rounded-full border-2 p-2">
-                <Link href="viber://add?number=9801442339" target="_blank">
+                <Link href="viber://add?number=9851027283" target="_blank">
                   <FaViber size={20} />
                 </Link>
               </li>
