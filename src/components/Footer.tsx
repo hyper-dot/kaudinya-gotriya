@@ -138,7 +138,8 @@ const Footer = ({ lang }: { lang: string }) => {
       </div>
       <div className="mt-8 flex flex-col justify-between gap-y-2 text-sm md:flex-row">
         <span>
-          &copy; Copyright {year} FEM Investment Pvt. Ltd. All rights reserved.
+          &copy; Copyright {year} Kaudinya Gotriya Maha samaj. All rights
+          reserved.
         </span>
         <span>
           Powered by :{" "}
