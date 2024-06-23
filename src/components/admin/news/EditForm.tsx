@@ -32,7 +32,6 @@ const EditNewsForm = ({ news }: { news: any }) => {
   // Populate news
   useEffect(() => {
     setValue("title", newsObj.title);
-    setValue("desc", newsObj.desc);
     setBody(newsObj.body);
     setImgUrl(newsObj.image.secure_url);
   }, []);
@@ -74,12 +73,6 @@ const EditNewsForm = ({ news }: { news: any }) => {
           <Input {...register("title")} placeholder="Title" />
           <p className="text-xs text-red-500">
             {errors.title && errors.title.message}
-          </p>
-        </div>
-        <div>
-          <Textarea {...register("desc")} placeholder="Description" />
-          <p className="text-xs text-red-500">
-            {errors.desc && errors.desc.message}
           </p>
         </div>
         <div>
