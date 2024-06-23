@@ -71,7 +71,7 @@ export const menus = {
       to: "/news",
     },
     {
-      title: "रिपोर्टहरू",
+      title: "डाउनलोड",
       to: "/reports",
     },
   ],
@@ -95,7 +95,7 @@ export const menus = {
       to: "/news",
     },
     {
-      title: "Reports",
+      title: "Downloads",
       to: "/reports",
     },
   ],
