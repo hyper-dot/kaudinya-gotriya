@@ -2,6 +2,7 @@ import Member from "@/server/models/Member";
 import { notFound } from "next/navigation";
 import connectDB from "@/server/utils/connectDB";
 import PersonCard from "@/components/about/PersonCard";
+import { unstable_noStore as noStore } from "next/cache";
 
 const content = {
   np: "सल्लाहकार समिति",
@@ -9,6 +10,7 @@ const content = {
 };
 
 const page = async ({ params }: { params: { lang: string } }) => {
+  noStore();
   try {
     await connectDB();
     const members = await Member.find({ group: "advisory", isChairman: false });

@@ -5,14 +5,17 @@ import { notFound } from "next/navigation";
 import Member from "@/server/models/Member";
 import PersonCard from "@/components/about/PersonCard";
 import connectDB from "@/server/utils/connectDB";
+import { unstable_noStore as noStore } from "next/cache";
 
 import dynamic from "next/dynamic";
+import { unstable_noStore } from "next/cache";
 const RichContentPreview = dynamic(
   () => import("@/components/editor/Preview"),
   { ssr: false, loading: () => <div className="h-[80vh]"></div> },
 );
 
 const page = async () => {
+  noStore();
   try {
     await connectDB();
     const chairman = await Member.findOne({
