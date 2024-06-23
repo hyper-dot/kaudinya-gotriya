@@ -12,9 +12,7 @@ export const SingleNews = ({ news }: { news: any }) => {
         }}
       ></div>
 
-      <h5 className=" mt-4 line-clamp-2 px-1 font-semibold text-indigo-950">
-        {news.title}
-      </h5>
+      <h5 className="mt-4 px-1 font-semibold text-indigo-950">{news.title}</h5>
     </Link>
   );
 };
