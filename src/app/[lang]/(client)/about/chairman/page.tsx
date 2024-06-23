@@ -15,9 +15,11 @@ const RichContentPreview = dynamic(
 const page = async () => {
   try {
     await connectDB();
-    const chairman = await Member.findOne({ group: "bod", isChairman: true });
+    const chairman = await Member.findOne({
+      group: "central",
+      isChairman: true,
+    });
     const speech = await Speech.findOne();
-    console.log(chairman);
     return (
       <div className="py-20">
         <H1 className="pb-10 text-center">अध्यक्षज्युको सन्देश</H1>

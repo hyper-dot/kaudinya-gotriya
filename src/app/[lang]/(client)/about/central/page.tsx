@@ -12,11 +12,11 @@ const page = async ({ params }: { params: { lang: string } }) => {
   try {
     await connectDB();
     const members = await Member.find({
-      group: "education",
+      group: "central",
       isChairman: false,
     });
     const chairman = await Member.findOne({
-      group: "education",
+      group: "central",
       isChairman: true,
     });
 
