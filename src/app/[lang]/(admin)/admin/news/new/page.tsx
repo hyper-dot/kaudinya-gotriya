@@ -120,12 +120,6 @@ const page = () => {
           </p>
         </div>
         <div>
-          <Textarea {...register("desc")} placeholder="Description" />
-          <p className="text-xs text-red-500">
-            {errors.desc && errors.desc.message}
-          </p>
-        </div>
-        <div>
           <Editor setValue={setBody} value={body} />
           <p className="text-xs text-red-500">
             {errors.body && errors.body.message}

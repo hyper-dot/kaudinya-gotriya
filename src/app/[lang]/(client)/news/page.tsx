@@ -15,7 +15,6 @@ const page = async () => {
         <NewsHero
           news={{
             title: latestNews.title,
-            desc: latestNews.desc,
             image: latestNews.image.secure_url,
             _id: latestNews._id,
           }}
