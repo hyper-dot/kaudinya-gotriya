@@ -113,7 +113,7 @@ export const about = {
   np: [
     { title: "हाम्रो बारेमा", to: "/" },
     { title: "अध्यक्षको सन्देश", to: "/chairman" },
-    { title: "केन्द्रिय समिति", to: "/central" },
+    { title: "केन्द्रीय समिति", to: "/central" },
     { title: "प्रदेशीय समिति", to: "/province" },
     { title: "विभागीय प्रमुख", to: "/department" },
     { title: "सल्हाकार समिति", to: "/advisor" },

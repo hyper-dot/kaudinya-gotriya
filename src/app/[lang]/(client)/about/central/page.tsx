@@ -5,7 +5,7 @@ import connectDB from "@/server/utils/connectDB";
 import { unstable_noStore as noStore } from "next/cache";
 
 const content = {
-  np: "केन्द्रिय समिति",
+  np: "केन्द्रीय समिति",
   en: "Central Committee",
 };
 
