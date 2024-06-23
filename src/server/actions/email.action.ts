@@ -1,28 +1,33 @@
 "use server";
+import { TContactForm } from "@/schemas/contact.schema";
 import * as nodemailer from "nodemailer";
 let transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: 465,
+  service: "gmail",
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
 });
 
-export async function sendMail({ phone, message, email, subject, name }: any) {
-  // Setup email data
-  const to = "";
+export async function sendMail({
+  contact,
+  description,
+  email,
+  subject,
+  fullName,
+}: TContactForm) {
+  const to = "rozanpoudel@gmail.com";
   let mailOptions = {
-    from: '"Website" <rozanpoudel@gmail.com>',
+    from: '"Message from Kaugmas" <info.metalogic@gmail.com>',
     to,
     subject,
     html: `<div style="width: 400px">
   <h1>A new message from website,</h1>
-  <p>From, ${name}</p>
+  <p>From, ${fullName}</p>
   <p>
-  Phone : ${phone}
+  Phone : ${contact}
   Email : ${email}
-  Message : ${message}
+  Message : ${description}
   </p>
 </div>`,
   };

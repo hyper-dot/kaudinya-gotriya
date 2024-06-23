@@ -18,6 +18,7 @@ import {
   getServiceID,
   getTemplateId,
 } from "@/server/constants/contact";
+import { sendMail } from "@/server/actions/email.action";
 
 const content = {
   en: {
@@ -54,16 +55,10 @@ export const Form = ({ lang }: { lang: string }) => {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = async (data: TContactForm) => {
-    const res = await emailjs.send(
-      getServiceID(),
-      getTemplateId(),
-      data,
-      getPublicKey(),
-    );
-    console.log(res);
+  const onSubmit = async (payload: TContactForm) => {
+    await sendMail(payload);
 
-    if (res.status === 200) {
+    if (true) {
       reset();
       toast({
         title: "Thank You for contacting us. 🎉",
