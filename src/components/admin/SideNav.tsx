@@ -2,16 +2,14 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  Building,
   FileText,
   Newspaper,
   BookImage,
   ScrollText,
   LogOutIcon,
-  Briefcase,
-  Users,
   BookUser,
   MessageCircleMore,
+  Settings,
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -61,6 +59,11 @@ const navsLinks = [
     title: "Voice of Chairman",
     icon: <MessageCircleMore size={20} strokeWidth={1} />,
     to: "/admin/speech",
+  },
+  {
+    title: "Settings",
+    icon: <Settings size={20} strokeWidth={1} />,
+    to: "/admin/settings",
   },
 ];
 
