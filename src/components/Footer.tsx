@@ -76,7 +76,7 @@ const Footer = ({ lang }: { lang: string }) => {
           </div>
         </div>
 
-        <div className="min-w-1/2 flex flex-col gap-y-8 md:mx-auto md:flex-row md:gap-8 xl:mx-0">
+        <div className="min-w-1/2 flex flex-col gap-y-8 md:mx-auto md:flex-row md:gap-x-28 xl:mx-0">
           <div>
             <h3 className="mb-2 font-semibold">Quick Links</h3>
             <ul className="flex flex-col gap-2 text-xs">
@@ -106,7 +106,9 @@ const Footer = ({ lang }: { lang: string }) => {
                 </li>
               ))}
               <li>
-                <Link href="/login">Login</Link>
+                <Link target="_blank" href="/login">
+                  Login
+                </Link>
               </li>
             </ul>
           </div>
