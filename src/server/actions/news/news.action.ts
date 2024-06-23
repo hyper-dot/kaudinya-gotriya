@@ -10,12 +10,11 @@ export const addNews = async (data: TNewsForm, imgData: any) => {
   const parsedData = newsSchema.safeParse(data);
   if (parsedData.success && imgData) {
     const { secure_url, public_id } = imgData;
-    const { title, desc, body } = parsedData.data;
+    const { title, body } = parsedData.data;
     try {
       await connectDB();
       const newNews = new News({
         title,
-        desc,
         body,
         image: { secure_url, public_id },
       });
