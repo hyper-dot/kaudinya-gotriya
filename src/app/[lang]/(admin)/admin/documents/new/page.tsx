@@ -29,9 +29,7 @@ const page = () => {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("doc", doc);
-
     const res = await fetch("/api/docs", { method: "POST", body: formData });
-
     toast({
       variant: res.ok ? "success" : "destructive",
       title: res.ok ? "Success !!" : "Failed !!",
