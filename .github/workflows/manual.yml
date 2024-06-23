@@ -40,7 +40,7 @@ jobs:
           # host: ${{ secrets.HOST }}
           # username: ${{ secrets.USERNAME }}
           # password: ${{ secrets.PASSWORD }}
-          host: "feminvestment.com"
+          host: "141.95.126.90"
           username: "feminves"
           password: "RAEts9d[Q52-r6"
           script: |
