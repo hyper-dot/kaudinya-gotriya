@@ -9,11 +9,15 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
+  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
 
 import styles from "./Navbar.module.css";
 import Link from "next/link";
-import { menus, services, about } from "./menus";
+import { menus, services, about, foreign } from "./menus";
 import MobileNav from "./MobileNav";
 
 const DesktopNav = ({ lang }: { lang: string }) => {
@@ -50,13 +54,37 @@ const DesktopNav = ({ lang }: { lang: string }) => {
                   {m.title} <ChevronDown size={18} strokeWidth={1} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  {about[lang as keyof typeof about].map((a, idx) => (
-                    <DropdownMenuItem asChild key={idx + 3232}>
-                      <Link className="h-full w-full" href={`/about/${a.to}`}>
-                        {a.title}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
+                  {about[lang as keyof typeof about].map((a, idx) =>
+                    a.to === "/foreign" ? (
+                      <DropdownMenuSub key={idx}>
+                        <DropdownMenuSubTrigger>
+                          {a.title}
+                        </DropdownMenuSubTrigger>
+                        <DropdownMenuPortal>
+                          <DropdownMenuSubContent>
+                            {foreign[lang as keyof typeof foreign].map(
+                              (menu: any, idx: number) => (
+                                <DropdownMenuItem key={idx} asChild>
+                                  <Link
+                                    className="h-full w-full"
+                                    href={`/about/${menu.to}`}
+                                  >
+                                    {menu.title}
+                                  </Link>
+                                </DropdownMenuItem>
+                              ),
+                            )}
+                          </DropdownMenuSubContent>
+                        </DropdownMenuPortal>
+                      </DropdownMenuSub>
+                    ) : (
+                      <DropdownMenuItem asChild key={idx + 3232}>
+                        <Link className="h-full w-full" href={`/about/${a.to}`}>
+                          {a.title}
+                        </Link>
+                      </DropdownMenuItem>
+                    ),
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
