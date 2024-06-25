@@ -14,7 +14,7 @@ const countries = [
   { title: "America", to: "/america" },
   { title: "India", to: "/india" },
   { title: "China", to: "/china" },
-  { title: "United Kingdom", to: "/united-kingdom" },
+  { title: "Britain", to: "/britain" },
   { title: "Europe", to: "/europe" },
   { title: "Japan", to: "/japan" },
   { title: "France", to: "/france" },

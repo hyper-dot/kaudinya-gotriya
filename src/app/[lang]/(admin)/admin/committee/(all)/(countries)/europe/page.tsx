@@ -22,7 +22,7 @@ import DeleteAlert from "@/components/DeleteAlert";
 const page = async () => {
   try {
     await connectDB();
-    const data = await Member.find({ group: "Europe" }).sort({
+    const data = await Member.find({ group: "europe" }).sort({
       createdAt: -1,
     });
 
