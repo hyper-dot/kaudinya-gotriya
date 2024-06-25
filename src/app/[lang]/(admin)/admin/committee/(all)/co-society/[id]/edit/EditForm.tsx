@@ -48,7 +48,7 @@ const EditBodMember = ({ data }: { data: string }) => {
   }, [errors]);
 
   const onSubmit = async (data: TMemberEditForm) => {
-    const { name, position, isChairman, image, group } = data;
+    const { name, position, image, group } = data;
     if (image) {
       // Deletes Old image
       await deleteCloudinaryImage(person.image.public_id);
@@ -75,7 +75,7 @@ const EditBodMember = ({ data }: { data: string }) => {
           name,
           position,
           image: { public_id, secure_url },
-          isChairman: isChairman,
+          isChairman: false,
           group,
         });
         toast({
@@ -97,7 +97,7 @@ const EditBodMember = ({ data }: { data: string }) => {
         const res = await updateMember(person._id, {
           name,
           position,
-          isChairman: isChairman,
+          isChairman: false,
           group,
           image: person.image,
         });
@@ -144,11 +144,6 @@ const EditBodMember = ({ data }: { data: string }) => {
           <p className="text-xs text-red-500">
             {errors.position && String(errors.position.message)}
           </p>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Label htmlFor="chairman">Is Chairman</Label>
-          <input id="chairman" {...register("isChairman")} type="checkbox" />
         </div>
 
         <Button disabled={isSubmitting} className="flex gap-1">

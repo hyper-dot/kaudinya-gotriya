@@ -50,7 +50,7 @@ const page = () => {
         name,
         position,
         image: { public_id, secure_url },
-        isChairman: isChairman,
+        isChairman: false,
         group: "co-society",
       });
       toast({
@@ -90,11 +90,6 @@ const page = () => {
           <p className="text-xs text-red-500">
             {errors.position && String(errors.position.message)}
           </p>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <Label htmlFor="chairman">Is Chairman</Label>
-          <input id="chairman" {...register("isChairman")} type="checkbox" />
         </div>
 
         <Button disabled={isSubmitting} className="flex gap-1">
