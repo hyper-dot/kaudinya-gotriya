@@ -47,8 +47,8 @@ export const updateMember = async (id: string, data: TServerMember) => {
       await connectDB();
       const updatedMember = await Member.findByIdAndUpdate(id, data);
       console.log("UPDATED", updatedMember);
-      revalidatePath("/admin/committee/bod");
-      revalidatePath("/about/bod");
+      revalidatePath("/admin/");
+      revalidatePath("/about/");
       return {
         success: true,
         message: "Successfully added member.",
@@ -74,8 +74,8 @@ export const deleteMember = async (id: string) => {
     await deleteCloudinaryImage(member.image.public_id);
     const deletedMember = await Member.findByIdAndDelete(id);
     console.log("DELETED MEMBER", deletedMember);
-    revalidatePath("/admin/committee/bod");
-    revalidatePath("/about/bod");
+    revalidatePath("/admin");
+    revalidatePath("/about");
   } catch (err) {
     console.log(err);
   }

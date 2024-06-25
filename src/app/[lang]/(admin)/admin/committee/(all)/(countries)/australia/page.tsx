@@ -68,7 +68,7 @@ const page = async () => {
                       <div className="inline-flex gap-2">
                         <Link
                           className="flex items-center justify-center text-blue-500 underline underline-offset-4"
-                          href={`/admin/committee/advisory/${g._id}/edit`}
+                          href={`/admin/committee/australia/${g._id}/edit`}
                         >
                           <PencilIcon size={16} />
                         </Link>
