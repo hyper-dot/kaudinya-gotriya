@@ -76,20 +76,22 @@ const MobileNav = ({ lang }: { lang: string }) => {
                         </p>
 
                         <ul>
-                          {foreign.en.map((m, idx) => (
-                            <li
-                              onClick={() => setAboutOpen(!otherCommittee)}
-                              key={`foreign_${idx}`}
-                            >
-                              <Link
-                                onClick={handleClose}
-                                className={`block px-2 py-2 text-sm ${pathname === `/about/${m.to}` && "bg-yellow-600"}`}
-                                href={`/about/${m.to}`}
+                          {foreign[lang as keyof typeof foreign].map(
+                            (m, idx) => (
+                              <li
+                                onClick={() => setAboutOpen(!otherCommittee)}
+                                key={`foreign_${idx}`}
                               >
-                                {m.title}
-                              </Link>
-                            </li>
-                          ))}
+                                <Link
+                                  onClick={handleClose}
+                                  className={`block px-2 py-2 text-sm ${pathname === `/about/${m.to}` && "bg-yellow-600"}`}
+                                  href={`/about/${m.to}`}
+                                >
+                                  {m.title}
+                                </Link>
+                              </li>
+                            ),
+                          )}
                         </ul>
                       </div>
                     ) : (
