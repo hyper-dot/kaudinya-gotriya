@@ -3,7 +3,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import LanguageSwitcher from "../Header/LanguageSwitcher";
-import { menus, services, about } from "./menus";
+import { menus, services, about, foreign } from "./menus";
 import { MenuIcon, X, ChevronDown } from "lucide-react";
 
 const MobileNav = ({ lang }: { lang: string }) => {
@@ -56,11 +56,11 @@ const MobileNav = ({ lang }: { lang: string }) => {
                   />
                 </p>
                 <ul
-                  className={`overflow-hidden pl-4 transition-all duration-300 ${aboutOpen && !otherCommittee ? "h-[220px]" : aboutOpen && otherCommittee ? "h-[380px]" : "h-0"}`}
+                  className={`overflow-hidden pl-4 transition-all duration-300 ${aboutOpen && !otherCommittee ? "h-[290px]" : aboutOpen && otherCommittee ? "h-[670px]" : "h-0"}`}
                   key={`about_${menuIdx}`}
                 >
                   {about[lang as keyof typeof about].map((m, aboutIdx) =>
-                    m.to === "/others" ? (
+                    m.to === "/foreign" ? (
                       <div key={aboutIdx}>
                         <p
                           onClick={() => {
@@ -68,12 +68,29 @@ const MobileNav = ({ lang }: { lang: string }) => {
                           }}
                           className="flex cursor-pointer items-center px-2 py-2"
                         >
-                          {lang === "en" ? "Other Committee" : "अन्य समिति"}
+                          {lang === "en" ? "Foreign Comittee" : "विदेश विभाग"}
                           <ChevronDown
                             strokeWidth={1}
                             className={otherCommittee ? "rotate-180" : ""}
                           />
                         </p>
+
+                        <ul>
+                          {foreign.en.map((m, idx) => (
+                            <li
+                              onClick={() => setAboutOpen(!otherCommittee)}
+                              key={`foreign_${idx}`}
+                            >
+                              <Link
+                                onClick={handleClose}
+                                className={`block px-2 py-2 text-sm ${pathname === `/about/${m.to}` && "bg-yellow-600"}`}
+                                href={`/about/${m.to}`}
+                              >
+                                {m.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     ) : (
                       <li
