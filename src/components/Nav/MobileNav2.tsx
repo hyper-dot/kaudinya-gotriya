@@ -3,8 +3,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import LanguageSwitcher from "../Header/LanguageSwitcher";
-import { menus, services, about, foreign, provinceMenu } from "./menus"; // Ensure you import provinces
-import { MenuIcon, X, ChevronDown } from "lucide-react";
+import { menus, about, foreign, provinceMenu } from "./menus"; // Ensure you import provinces
+import { MenuIcon, X } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -67,7 +67,8 @@ const MobileNav = ({ lang }: { lang: string }) => {
                                       (m) => (
                                         <li>
                                           <Link
-                                            href={m.to}
+                                            onClick={handleClose}
+                                            href={`/about/${m.to}`}
                                             key={`/about/${m.title}`}
                                           >
                                             {m.title}
@@ -75,7 +76,6 @@ const MobileNav = ({ lang }: { lang: string }) => {
                                         </li>
                                       ),
                                     )}
-                                    <li></li>
                                   </ul>
                                 </AccordionContent>
                               </AccordionItem>
@@ -95,14 +95,14 @@ const MobileNav = ({ lang }: { lang: string }) => {
                                     ].map((m) => (
                                       <li>
                                         <Link
-                                          href={m.to}
-                                          key={`/about/${m.title}`}
+                                          onClick={handleClose}
+                                          href={`/about/province/${m.to}`}
+                                          key={`/about/province/${m.title}`}
                                         >
                                           {m.title}
                                         </Link>
                                       </li>
                                     ))}
-                                    <li></li>
                                   </ul>
                                 </AccordionContent>
                               </AccordionItem>
@@ -110,13 +110,16 @@ const MobileNav = ({ lang }: { lang: string }) => {
                           </>
                         ) : (
                           <li>
-                            <Link href={m.to} key={`/about/${m.title}`}>
+                            <Link
+                              onClick={handleClose}
+                              href={`/about/${m.to}`}
+                              key={`/about/${m.title}`}
+                            >
                               {m.title}
                             </Link>
                           </li>
                         ),
                       )}
-                      <li></li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>

@@ -38,8 +38,9 @@ export default async function ({
             }}
             className="flex h-[200px] items-center justify-center md:h-[300px]"
           >
-            <div className="flex h-[90%] w-[90%] items-center justify-center rounded-3xl bg-[rgba(0,0,0,0.4)] text-3xl font-semibold text-white md:text-5xl">
-              {content[params.lang as keyof typeof content]} ({p?.title})
+            <div className="flex h-[90%] w-[90%] flex-col items-center justify-center gap-y-4 rounded-3xl bg-[rgba(0,0,0,0.4)] p-2 text-center text-3xl font-semibold text-white md:text-5xl">
+              <p>{content[params.lang as keyof typeof content]}</p>
+              <p>({p?.title})</p>
             </div>
           </div>
 
