@@ -150,3 +150,24 @@ export const foreign = {
     { title: "अन्य", to: "/others" },
   ],
 };
+
+export const provinceMenu = {
+  en: [
+    { title: "Koshi Province", to: "koshi" },
+    { title: "Madhesh Province", to: "madesh" },
+    { title: "Bagmati Province", to: "bagmati" },
+    { title: "Gandaki Province", to: "gandaki" },
+    { title: "Lumbini Province", to: "lumbini" },
+    { title: "Karnali Province", to: "karnali" },
+    { title: "Sudurpaschim Province", to: "sudurpaschim" },
+  ],
+  np: [
+    { title: "कोशी प्रदेश", to: "koshi" },
+    { title: "मधेश प्रदेश", to: "madesh" },
+    { title: "बागमती प्रदेश", to: "bagmati" },
+    { title: "गण्डकी प्रदेश", to: "gandaki" },
+    { title: "लुम्बिनी प्रदेश", to: "lumbini" },
+    { title: "कर्णाली प्रदेश", to: "karnali" },
+    { title: "सुदुर पश्चिम प्रदेश", to: "sudurpaschim" },
+  ],
+};

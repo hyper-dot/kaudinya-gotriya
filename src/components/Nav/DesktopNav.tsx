@@ -17,7 +17,7 @@ import {
 
 import styles from "./Navbar.module.css";
 import Link from "next/link";
-import { menus, services, about, foreign } from "./menus";
+import { menus, services, about, foreign, provinceMenu } from "./menus";
 import MobileNav from "./MobileNav";
 
 const DesktopNav = ({ lang }: { lang: string }) => {
@@ -74,6 +74,28 @@ const DesktopNav = ({ lang }: { lang: string }) => {
                                 </DropdownMenuItem>
                               ),
                             )}
+                          </DropdownMenuSubContent>
+                        </DropdownMenuPortal>
+                      </DropdownMenuSub>
+                    ) : a.to === "/province" ? (
+                      <DropdownMenuSub key={idx}>
+                        <DropdownMenuSubTrigger>
+                          {a.title}
+                        </DropdownMenuSubTrigger>
+                        <DropdownMenuPortal>
+                          <DropdownMenuSubContent>
+                            {provinceMenu[
+                              lang as keyof typeof provinceMenu
+                            ].map((menu: any, idx: number) => (
+                              <DropdownMenuItem key={idx} asChild>
+                                <Link
+                                  className="h-full w-full"
+                                  href={`/about/province/${menu.to}`}
+                                >
+                                  {menu.title}
+                                </Link>
+                              </DropdownMenuItem>
+                            ))}
                           </DropdownMenuSubContent>
                         </DropdownMenuPortal>
                       </DropdownMenuSub>
