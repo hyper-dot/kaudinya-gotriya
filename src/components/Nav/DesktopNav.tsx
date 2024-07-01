@@ -18,7 +18,7 @@ import {
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { menus, services, about, foreign, provinceMenu } from "./menus";
-import MobileNav from "./MobileNav";
+import MobileNav from "./MobileNav2";
 
 const DesktopNav = ({ lang }: { lang: string }) => {
   const router = useRouter();
