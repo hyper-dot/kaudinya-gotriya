@@ -1,12 +1,14 @@
 import React from "react";
 import EditBodMember from "./EditForm";
 import { notFound } from "next/navigation";
-import Member from "@/server/models/Member";
+import ProvinceMember from "@/server/models/ProvinceMember";
+import { unstable_noStore as noStore } from "next/cache";
 
 const page = async ({ params }: { params: { id: string } }) => {
+  noStore();
   const { id } = params;
   try {
-    const member = await Member.findById(id);
+    const member = await ProvinceMember.findById(id);
     if (member) {
       return <EditBodMember data={JSON.stringify(member)} />;
     } else {

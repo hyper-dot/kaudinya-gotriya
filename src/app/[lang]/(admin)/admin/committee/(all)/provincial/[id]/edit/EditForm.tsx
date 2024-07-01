@@ -2,7 +2,10 @@
 import React, { useEffect } from "react";
 import { H1 } from "@/components/typography";
 import { ImageUploadBtn } from "@/components/admin/ImageUploadBtn";
-import { memberEditSchema, TMemberEditForm } from "@/schemas/member.schema";
+import {
+  provinceMemberEditSchema,
+  TProvinceMemberEditShmema,
+} from "@/schemas/member.schema";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
@@ -19,10 +22,8 @@ import {
   getCloudinaryApiKey,
   getCloudinaryUploadUri,
 } from "@/app/[lang]/(admin)/admin/news/new/constants";
-import {
-  addNewMember,
-  updateMember,
-} from "@/server/actions/members/members.action";
+import { updateProvinceMember } from "@/server/actions/members/members.action";
+import { PROVINCES } from "@/server/utils/constants";
 
 const EditBodMember = ({ data }: { data: string }) => {
   const person = JSON.parse(data);
@@ -34,8 +35,8 @@ const EditBodMember = ({ data }: { data: string }) => {
     setValue,
     trigger,
     formState: { errors, isSubmitting },
-  } = useForm<TMemberEditForm>({
-    resolver: zodResolver(memberEditSchema),
+  } = useForm<TProvinceMemberEditShmema>({
+    resolver: zodResolver(provinceMemberEditSchema),
   });
 
   // Populate data
@@ -43,15 +44,15 @@ const EditBodMember = ({ data }: { data: string }) => {
     setValue("name", person.name);
     setValue("position", person.position);
     setValue("isChairman", person.isChairman);
-    setValue("group", person.group);
+    setValue("province", person.province);
   }, []);
 
   useEffect(() => {
     console.log(errors);
   }, [errors]);
 
-  const onSubmit = async (data: TMemberEditForm) => {
-    const { name, position, isChairman, image, group } = data;
+  const onSubmit = async (data: TProvinceMemberEditShmema) => {
+    const { name, position, isChairman, image, province } = data;
     if (image) {
       // Deletes Old image
       await deleteCloudinaryImage(person.image.public_id);
@@ -74,12 +75,12 @@ const EditBodMember = ({ data }: { data: string }) => {
       if (cloud_res.ok) {
         // Calls update func
         const { public_id, secure_url } = await cloud_res.json();
-        const res = await updateMember(person._id, {
+        const res = await updateProvinceMember(person._id, {
           name,
           position,
           image: { public_id, secure_url },
           isChairman: isChairman,
-          group,
+          province,
         });
         toast({
           variant: res.success ? "success" : "destructive",
@@ -97,11 +98,11 @@ const EditBodMember = ({ data }: { data: string }) => {
       }
     } else {
       try {
-        const res = await updateMember(person._id, {
+        const res = await updateProvinceMember(person._id, {
           name,
           position,
           isChairman: isChairman,
-          group,
+          province,
           image: person.image,
         });
         toast({
@@ -124,7 +125,7 @@ const EditBodMember = ({ data }: { data: string }) => {
 
   return (
     <div className="max-w-xl">
-      <H1 className="pb-10">New Member Details</H1>
+      <H1 className="pb-10">Edit Member Details</H1>
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
         <ImageUploadBtn
           initialImage={person.image.secure_url}
@@ -134,6 +135,26 @@ const EditBodMember = ({ data }: { data: string }) => {
         <p className="text-xs text-red-500">
           {errors.image && String(errors.image.message)}
         </p>
+
+        <div className="flex flex-col">
+          <Label htmlFor="province">Province</Label>
+          <select
+            id="province"
+            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors"
+            {...register("province")}
+          >
+            <option value="">Please select a province</option>
+            {PROVINCES.map((p) => (
+              <option value={p.value} key={p.value}>
+                {p.title}
+              </option>
+            ))}
+          </select>
+          <p className="text-xs text-red-500">
+            {errors.province && String(errors.province.message)}
+          </p>
+        </div>
+
         <div>
           <Label>Full Name</Label>
           <Input {...register("name")} placeholder="Eg: Ram Prasad Adhikari" />

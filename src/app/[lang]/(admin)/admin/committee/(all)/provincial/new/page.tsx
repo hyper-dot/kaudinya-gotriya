@@ -2,7 +2,7 @@
 import React from "react";
 import { H1 } from "@/components/typography";
 import { ImageUploadBtn } from "@/components/admin/ImageUploadBtn";
-import { memberSchema, TMemberForm } from "@/schemas/member.schema";
+import { provinceMemberSchema, TProvinceMember } from "@/schemas/member.schema";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
@@ -16,7 +16,8 @@ import {
   getCloudinaryApiKey,
   getCloudinaryUploadUri,
 } from "../../../../news/new/constants";
-import { addNewMember } from "@/server/actions/members/members.action";
+import { addNewProvinceMember } from "@/server/actions/members/members.action";
+import { PROVINCES } from "@/server/utils/constants";
 
 const page = () => {
   const router = useRouter();
@@ -27,12 +28,15 @@ const page = () => {
     setValue,
     trigger,
     formState: { errors, isSubmitting },
-  } = useForm<TMemberForm>({
-    resolver: zodResolver(memberSchema),
+  } = useForm<TProvinceMember>({
+    resolver: zodResolver(provinceMemberSchema),
+    defaultValues: {
+      province: "",
+    },
   });
 
-  const onSubmit = async (data: TMemberForm) => {
-    const { image, name, position, isChairman } = data;
+  const onSubmit = async (data: TProvinceMember) => {
+    const { image, name, position, isChairman, province } = data;
     const { timestamp, signature } = await getSignatureForMembers();
     const formData = new FormData();
     formData.append("file", image);
@@ -46,12 +50,12 @@ const page = () => {
 
     if (cloud_res.ok) {
       const { public_id, secure_url } = await cloud_res.json();
-      const res = await addNewMember({
+      const res = await addNewProvinceMember({
         name,
         position,
         image: { public_id, secure_url },
         isChairman: isChairman,
-        group: "provincial",
+        province,
       });
       toast({
         variant: res.success ? "success" : "destructive",
@@ -77,6 +81,26 @@ const page = () => {
         <p className="text-xs text-red-500">
           {errors.image && String(errors.image.message)}
         </p>
+
+        <div className="flex flex-col">
+          <Label htmlFor="province">Province</Label>
+          <select
+            id="province"
+            className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors"
+            {...register("province")}
+          >
+            <option value="">Please select a province</option>
+            {PROVINCES.map((p) => (
+              <option value={p.value} key={p.value}>
+                {p.title}
+              </option>
+            ))}
+          </select>
+          <p className="text-xs text-red-500">
+            {errors.province && String(errors.province.message)}
+          </p>
+        </div>
+
         <div>
           <Label>Full Name</Label>
           <Input {...register("name")} placeholder="Eg: Ram Prasad Adhikari" />

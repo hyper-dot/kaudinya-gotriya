@@ -14,6 +14,7 @@ function isMatchingPath(requestUrl: URL): boolean {
 export async function middleware(req: NextRequest) {
   const lang = req.cookies.get("lang")?.value || "np";
   const pathname = req.nextUrl.pathname;
+  const searchParams = req.nextUrl.searchParams;
   const newUrl = new URL(`/${lang}${pathname}`, req.nextUrl);
 
   if (isMatchingPath(newUrl)) {
@@ -37,7 +38,9 @@ export async function middleware(req: NextRequest) {
   // Ignore auth route
   if (pathname === "/api/auth") return;
 
-  return NextResponse.rewrite(newUrl);
+  const res = NextResponse.rewrite(newUrl);
+  res.headers.set("searchParams", searchParams.toString());
+  return res;
 }
 
 export const config = {

@@ -20,7 +20,7 @@ type TDeleteAlert = {
   name?: string;
 };
 
-const DeleteAlert: React.FC<TDeleteAlert> = ({ id, deleteAction, name }) => {
+const DeleteAlert = ({ id, deleteAction, name }: TDeleteAlert) => {
   const [pending, setPending] = useState(false);
 
   useEffect(() => {

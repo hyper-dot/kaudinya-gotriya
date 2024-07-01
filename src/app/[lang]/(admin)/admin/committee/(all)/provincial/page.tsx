@@ -12,17 +12,18 @@ import {
 } from "@/components/ui/table";
 
 import { PencilIcon, PlusCircle } from "lucide-react";
-import Member from "@/server/models/Member";
+import ProvinceMember from "@/server/models/ProvinceMember";
 import { notFound } from "next/navigation";
 import connectDB from "@/server/utils/connectDB";
 import { dateFormatter } from "@/lib/dateFormatter";
-import { deleteMember } from "@/server/actions/members/members.action";
+import { deleteProvinceMember } from "@/server/actions/members/members.action";
 import DeleteAlert from "@/components/DeleteAlert";
 
 const page = async () => {
   try {
     await connectDB();
-    const data = await Member.find({ group: "provincial" }).sort({
+    const data = await ProvinceMember.find().sort({
+      province: 1,
       createdAt: -1,
     });
 
@@ -40,6 +41,7 @@ const page = async () => {
             <TableRow>
               <TableHead>Photo</TableHead>
               <TableHead>Full Name</TableHead>
+              <TableHead>Province</TableHead>
               <TableHead>Position</TableHead>
               <TableHead>Created At</TableHead>
               <TableHead className="text-right">Actions</TableHead>
@@ -62,6 +64,7 @@ const page = async () => {
                       ></div>
                     </TableCell>
                     <TableCell>{g.name}</TableCell>
+                    <TableCell>{g.province}</TableCell>
                     <TableCell>{g.position}</TableCell>
                     <TableCell>{dateFormatter(g.createdAt)}</TableCell>
                     <TableCell className="text-right">
@@ -75,7 +78,7 @@ const page = async () => {
                         <div className="flex items-center justify-center text-red-500 underline underline-offset-4"></div>
 
                         <DeleteAlert
-                          deleteAction={deleteMember}
+                          deleteAction={deleteProvinceMember}
                           id={JSON.stringify(g._id)}
                         />
                       </div>

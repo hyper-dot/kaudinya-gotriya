@@ -86,3 +86,37 @@ export const memberServer = z.object({
 });
 
 export type TServerMember = z.infer<typeof memberServer>;
+
+export const provinceMemberSchema = z.object({
+  name: z.string().min(1, { message: "Full name is required." }),
+  province: z.string().min(1, { message: "Province is required." }),
+  position: z.string().min(1, { message: "Position is required." }),
+  isChairman: z.boolean().default(false),
+  image: z
+    .any()
+    .refine((file) => file !== null && file !== undefined, "Image is required.")
+    .refine((file) => file?.size <= MAX_FILE_SIZE, `Max file size is 5MB.`)
+    .refine(
+      (files) => ACCEPTED_FILE_TYPES.includes(files?.type),
+      "Only .png, .jpg, .jpeg are supported.",
+    ),
+});
+
+export type TProvinceMember = z.infer<typeof provinceMemberSchema>;
+
+export const provinceMemberEditSchema = provinceMemberSchema.extend({
+  image: z
+    .any()
+    .refine(
+      (file) => file && file.size <= MAX_FILE_SIZE,
+      `Max file size is 5MB.`,
+    )
+    .refine(
+      (files) => ACCEPTED_FILE_TYPES.includes(files?.type),
+      "Only .png, .jpg, .jpeg are supported.",
+    )
+    .nullish(),
+});
+export type TProvinceMemberEditShmema = z.infer<
+  typeof provinceMemberEditSchema
+>;

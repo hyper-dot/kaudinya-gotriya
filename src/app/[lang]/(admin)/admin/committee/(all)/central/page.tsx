@@ -16,7 +16,7 @@ import Member from "@/server/models/Member";
 import { notFound } from "next/navigation";
 import connectDB from "@/server/utils/connectDB";
 import { dateFormatter } from "@/lib/dateFormatter";
-import { deleteMember } from "@/server/actions/members/members.action";
+import { deleteProvinceMember } from "@/server/actions/members/members.action";
 import DeleteAlert from "@/components/DeleteAlert";
 
 const page = async () => {
@@ -75,7 +75,7 @@ const page = async () => {
                         <div className="flex items-center justify-center text-red-500 underline underline-offset-4"></div>
 
                         <DeleteAlert
-                          deleteAction={deleteMember}
+                          deleteAction={deleteProvinceMember}
                           id={JSON.stringify(g._id)}
                         />
                       </div>
